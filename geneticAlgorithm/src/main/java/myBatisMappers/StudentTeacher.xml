@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.Mappers.StudentTeacherMapper">
+
+    <insert id="create">
+        INSERT INTO student_teacher(student_id, teacher_id)
+        VALUES(#{studentId},#{teacherId})
+    </insert>
+
+    <select id="selectAll" resultType="com.solvd.laba.Mappers.StudentTeacherMapper">
+        SELECT * FROM student_teacher
+    </select>
+
+    <select id="selectById" parameterType="int" resultType="com.solvd.laba.Mappers.StudentTeacherMapper">
+        SELECT * FROM student_teacher WHERE student_id = #{studentId}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM student_teacher WHERE student_id = #{studentId}
+    </delete>
+
+    <update id="update">
+        UPDATE student_teacher SET teacher_id = #{teacherId} WHERE student_id = #{studentId}
+    </update>
+
+</mapper>

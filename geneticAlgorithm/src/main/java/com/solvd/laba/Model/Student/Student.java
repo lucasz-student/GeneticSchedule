@@ -4,10 +4,12 @@ public class Student {
 
 	private int id;
 	private String name;
+	private int groupId;
 	
-	public Student(int id, String name) {
+	public Student(int id, String name,int groupId) {
 		this.id=id;
 		this.name=name;
+		this.groupId=groupId;
 	}
 
 	public int getId() {
@@ -24,5 +26,13 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
 	}
 }

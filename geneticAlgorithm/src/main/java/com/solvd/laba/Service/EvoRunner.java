@@ -19,9 +19,10 @@ public class EvoRunner {
                 }
             }
         }
-        SchedulingService schedulingService = new SchedulingService();
+       
+        /*SchedulingService schedulingService = new SchedulingService();
         IChromosome bestSolution = schedulingService.schedule(numbers[0], numbers[1], numbers[2], numbers[3]);
         System.out.println("best solution fitness value: " + bestSolution.getFitnessValue());
-        schedulingService.displaySchedule(bestSolution);
+        schedulingService.displaySchedule(bestSolution);*/
     }
 }

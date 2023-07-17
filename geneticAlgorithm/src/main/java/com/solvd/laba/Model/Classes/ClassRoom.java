@@ -2,13 +2,13 @@ package com.solvd.laba.Model.Classes;
 
 import com.solvd.laba.Model.Teachers.Teacher;
 
-public abstract class AbstractClass {
+public abstract class ClassRoom {
 
 	private int id;
 	private String name;
 	private Teacher teacher;
 	
-	public AbstractClass(int id, String name, Teacher teacher) {
+	public ClassRoom(int id, String name, Teacher teacher) {
 		this.id=id;
 		this.name=name;
 		this.teacher=teacher;

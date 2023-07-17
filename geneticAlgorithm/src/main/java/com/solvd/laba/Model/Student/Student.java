@@ -1,4 +1,4 @@
-package Student;
+package com.solvd.laba.Model.Student;
 
 public class Student {
 

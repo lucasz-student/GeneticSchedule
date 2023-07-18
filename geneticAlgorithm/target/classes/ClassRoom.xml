@@ -6,14 +6,14 @@
 
     <insert id="create">
         INSERT INTO class (class_id, class_name, teacher_id)
-        VALUES (#{id},#{name}, #{Teacher.id})
+        VALUES (#{id},#{name}, #{teacher_id})
     </insert>
 
-    <select id="selectAll" resultType="com.solvd.laba.Mappers.ClassRoomMapper">
+    <select id="selectAll" resultType="com.solvd.laba.Model.Classes.ClassRoom">
         SELECT * FROM class
     </select>
 
-    <select id="selectById" parameterType="int" resultType="com.solvd.laba.Mappers.ClassRoomMapper">
+    <select id="selectById" parameterType="int" resultType="com.solvd.laba.Model.Classes.ClassRoom">
         SELECT * FROM class WHERE class_id = #{id}
     </select>
 

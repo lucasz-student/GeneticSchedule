@@ -1,0 +1,7 @@
+com\solvd\laba\Model\Groups\GroupClass.class
+com\solvd\laba\Model\Groups\Group.class
+com\solvd\laba\Model\Teachers\Teacher.class
+com\solvd\laba\Model\Classes\ClassRoom.class
+com\solvd\laba\Model\Student\StudentClassRoom.class
+com\solvd\laba\Model\Student\StudentTeacher.class
+com\solvd\laba\Model\Student\Student.class

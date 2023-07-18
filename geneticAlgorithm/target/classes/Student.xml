@@ -9,11 +9,11 @@
         VALUES(#{id},#{name},#{groupId})
     </insert>
 
-    <select id="selectAll" resultType="com.solvd.laba.Mappers.StudentMapper">
+    <select id="selectAll" resultType="com.solvd.laba.Model.Student.Student">
         SELECT * FROM student
     </select>
 
-    <select id="selectById" parameterType="int" resultType="com.solvd.laba.Mappers.StudentMapper">
+    <select id="selectById" parameterType="int" resultType="com.solvd.laba.Model.Student.Student">
         SELECT * FROM student WHERE student_id = #{id}
     </select>
 

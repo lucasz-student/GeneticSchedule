@@ -1,40 +1,29 @@
 package com.solvd.laba.Model.Teachers;
 
-import com.solvd.laba.Model.Classes.ClassRoom;
-
 public class Teacher {
 
-	private int id; 
-	private String subject;
-	private ClassRoom classRoom;
+	private int teacher_id; 
+	private String name;
 	
-	public Teacher(int id, String subject, ClassRoom classRoom) {
-		this.setClassRoom(classRoom);
-		this.id = id;
-		this.subject = subject;
+	public Teacher(int teacher_id, String name) {
+		this.teacher_id = teacher_id;
+		this.name = name;
 	}
 
-	public int getId() {
-		return id;
+	public int getTeacherId() {
+		return teacher_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setTeacherId(int teacher_id) {
+		this.teacher_id = teacher_id;
 	}
 
-	public String getSubject() {
-		return subject;
+	public String getName() {
+		return name;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public ClassRoom getClassRoom() {
-		return classRoom;
-	}
-
-	public void setClassRoom(ClassRoom classRoom) {
-		this.classRoom = classRoom;
-	} 
+ 
 }

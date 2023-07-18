@@ -1,4 +1,4 @@
-package com.solvd.laba.Mappers;
+package mappers;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import com.solvd.laba.Model.Classes.ClassRoom;
 
 public interface ClassRoomMapper {
 	
-	 @Insert("INSERT INTO class (class_id, class_name, teacher_id) VALUES(#{id},#{name}, #{Teacher.id})")
+	 @Insert("INSERT INTO class (class_id, class_name, teacher_id) VALUES(#{id},#{name}, #{teacher_id})")
 	    void create(ClassRoom classRoom);
 
 	    @Select("SELECT * FROM class")

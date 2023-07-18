@@ -1,4 +1,4 @@
-package com.solvd.laba.Mappers;
+package mappers;
 
 import java.util.List;
 

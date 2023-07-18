@@ -1,13 +1,21 @@
 package com.solvd.laba.Service;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.jgap.*;
 import org.jgap.impl.*;
 
+import com.solvd.laba.DAO.TeacherMapper;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class SchedulingService {
-    public static final int EVOLUTIONS = 1000;
-    public static final int POPULATION_SIZE = 100;
+    public static final int EVOLUTIONS = 1500;
+    public static final int POPULATION_SIZE = 300;
     public static final int NUMBER_OF_PERIODS_PER_DAY = 6;
     public static final int NUMBER_OF_DAYS = 5;
     public static final int NUMBER_OF_GROUPS = 3;
@@ -55,17 +63,42 @@ public class SchedulingService {
         }
     }
 
-    public void displaySchedule(IChromosome chromosome) {
+    public void displaySchedule(IChromosome chromosome) throws IOException {
         for (int group = 0; group < NUMBER_OF_GROUPS; group++) {
             System.out.println("Group " + (group + 1) + ":");
             for (int day = 0; day < NUMBER_OF_DAYS; day++) {
                 System.out.println("  Day " + (day + 1) + ":");
                 for (int period = 0; period < NUMBER_OF_PERIODS_PER_DAY; period++) {
                     int geneIndex = group * NUMBER_OF_DAYS * NUMBER_OF_PERIODS_PER_DAY + day * NUMBER_OF_PERIODS_PER_DAY + period;
-                    System.out.println("    Period " + (period + 1) + ": Teacher " + chromosome.getGene(geneIndex).getAllele());
+                    System.out.println("    Period " + (period + 1) + ": Teacher " + teacherIDToName(((int) chromosome.getGene(geneIndex).getAllele())));
                 }
             }
         }
+    }
+    
+    public String teacherIDToName(int id) throws IOException {
+    	
+    	if (id==0) {
+    		return "No Class";
+    	}
+    	
+		InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        InputStream dbPropertiesStream = Resources.getResourceAsStream("db.properties");
+        Properties dbProperties = new Properties();
+        dbProperties.load(dbPropertiesStream);
+		
+        Properties properties = new Properties();
+        properties.setProperty("driver", dbProperties.getProperty("db.driver"));
+        properties.setProperty("url", dbProperties.getProperty("db.url"));
+        properties.setProperty("username", dbProperties.getProperty("db.user"));
+        properties.setProperty("password", dbProperties.getProperty("db.password"));
+		
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, properties);
+		
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			TeacherMapper TeacherMapper = session.getMapper(TeacherMapper.class);
+			return "Professor " + TeacherMapper.selectById(id).getName();
+		}
     }
 }
 

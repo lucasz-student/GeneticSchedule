@@ -6,13 +6,14 @@ import java.util.List;
 import com.solvd.laba.Model.Classes.ClassRoom;
 import com.solvd.laba.Model.Student.Student;
 
-
 public class Group {
 
 	private List<Student> students = new ArrayList<>();
 	private List<ClassRoom> classes = new ArrayList<>();
-	
 
+	public Group() {
+	}
+	
 	public Group(List<Student> students, List<ClassRoom> classes) {
 		super();
 		this.students = students;
@@ -22,13 +23,24 @@ public class Group {
 	public List<Student> getStudents() {
 		return students;
 	}
+	
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+	
 	public List<ClassRoom> getClasses() {
 		return classes;
 	}
+	
 	public void setClasses(List<ClassRoom> classes) {
 		this.classes = classes;
+	}
+	
+	public void addStudent(Student s) {
+		students.add(s);
+	}
+	
+	public void printStudents() {
+		this.students.forEach((s) -> {System.out.println(s);});
 	}
 }
